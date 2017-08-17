@@ -1,0 +1,96 @@
+﻿@model IEnumerable<JDeanShoppingApp.Models.codeFirst.Item>
+
+<div class="container">
+    <div class="productDisplay">
+
+        <!--header image-->
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="topImg">
+                        
+                        <img class="responsive-image" src="~/Assets/images/3.jpg" style="max-width: 900px" />
+                        <p style="color:white; font-size:60px">
+                            New Styles<br />
+                            <span style="font-size:32px">COLLECTION 2016</span><br />
+                            <button style="font-size:18px">SHOP NOW</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>8 items
+</div>
+
+<!--main products-->
+@*<div style="margin-left: 16px">*@
+
+@if(User.IsInRole("Admin"))
+{
+@Html.ActionLink("Create New", "Create")
+}
+<div class="container" style="margin-left:16px">
+    <div class="row">
+        @foreach (var item in Model)
+            {
+            <div class="col-md-3">
+                <a href="@Url.Action("Details","Items", new {id = item.Id})">
+                    <img src="@item.MediaURL" style="width:100%" />
+                    <p>@item.Name</p>
+                    <p><b>$@item.Price</b></p>
+                </a>
+            </div>
+        }
+    </div>
+</div>
+@*<div class="col-md-3">
+                    <img src="~/Assets/images/m2.jpg" />
+                    <p>CFW-1320</p>
+                    <p><b>$9000</b></p>
+                </div>
+
+                <div class="col-md-3">
+                    <img src="~/Assets/images/m3.jpg" />
+                    <p>CFW-1330</p>
+                    <p><b>$100</b></p>
+                </div>
+                <div class="col-md-3">
+                    <img src="~/Assets/images/m5.jpg" />
+                    <p>CFW-1340</p>
+                    <p><b>$39000</b></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="~/Assets/images/m6.jpg" />
+                    <p>CFW-1350</p>
+                    <p><b>$84000</b></p>
+                </div>
+                <div class="col-md-3">
+                    <img src="~/Assets/images/m7.jpg" />
+                    <p>CFW-1360</p>
+                    <p><b>$2700</b></p>
+                </div>
+                <div class="col-md-3">
+                    <img src="~/Assets/images/m8.jpg" />
+                    <p>CFW-1370</p>
+                    <p><b>$10500</b></p>
+                </div>
+                <div class="col-md-3">
+                    <img src="~/Assets/images/m9.jpg" />
+                    <p>CFW-1380</p>
+                    <p><b>$3000</b></p>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+
+
+
+
+
+<!--items content ends-->
+<!--Subscribe and contact section begins-->

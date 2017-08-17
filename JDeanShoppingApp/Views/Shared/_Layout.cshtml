@@ -1,0 +1,242 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    @*<meta name="viewport" content="width = device-width, initial-scale = 1.0"/>*@
+    <title>eCommerce App</title>
+    <meta charset="utf-8" />
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+    <link href="~/Assets/css/myCustomStyle.css" rel="stylesheet" />
+
+    <link href="~/Assets/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body style="overflow-x: hidden">
+    <!--icons bar-->
+    <div class="header">
+        <div class="container" padding="10px">
+            <div class="col">
+                <div class="row">
+                    <span style="font-size:30px;cursor:pointer" onclick="openNav()">
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    @Html.Partial("_LoginPartial")
+                    
+                    <div class="tooltip">
+                        hello
+                        <span class="tooltiptext">Tooltip text</span>
+                    </div>
+                    <i class="fa fa-search pull-right" style="font-size:30px; color:black"></i>
+                    <i class="fa fa-shopping-cart pull-right" id="shop" style="font-size:30px; color:black">
+                    </i>&nbsp;
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <!--modal box starts-->
+        <div id="newsBox" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal header">
+                            <div class="modal-title">
+                                Sign up
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <input type="email" placeholder="Enter your email" />
+
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-danger">Subscribe</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--modal box ends-->
+        <!--side navbar starts-->
+        <nav style="width:130px; position:fixed;">
+            <div id="mySidenav" class="sidenav">
+                <a href="" class="closebtn" onclick="closeNav()">
+                    <i class="fa fa-close"></i>
+                </a>
+                <a href="#">CFW Series</a>
+                <a href="#">CFAW Series</a>
+                <a href="#navList" data-toggle="collapse">Collection</a>
+                <div id="navList" class="collapse">
+                <ul>
+                    <li><a href="#">2016</a></li>
+                    <li><a href="#">2017</a></li>
+                    <li><a href="#">Vintage</a></li>
+                    </ul>
+                </div>
+                <a href="#">Straps</a>
+                <a href="#">Parts</a>
+                <a href="#">Tools</a>
+                <a href="#">Accessories</a>
+                <a href="#">Contact</a>
+                <a href="#" data-toggle="modal" data-target="#newsBox">Newsletter</a>
+                <a href="#">About us</a>
+            </div>
+        </nav>
+    </div>
+
+    <!--side navbar ends-->
+    <div class="bottom col-md-8">
+    @RenderBody()
+        <div class="subscribeBox">
+
+            <h1 style="margin:10px">Subscribe</h1>
+            <p style="margin:10px">
+                To get special offers and
+                <span style="color:red">VIP</span> treatment:
+            </p>
+            <input style="margin:10px ; width:50em" placeholder="Enter email" />
+            <p>
+                <button style="margin:10px">
+                    Subscribe
+                </button>
+        </div>
+        <!--subscribe and contact section ends-->
+        <!--about and contact sections begin-->
+        <div class="threeColumns" style="background-color:#f1f1f1">
+
+            <div class="row">
+                <div class="col-md-4">
+                    <center>
+                        <h4>Contact</h4>
+                        <!--column of input boxes-->
+                        <p>Questions? Go ahead.</p>
+                        <p>
+                        <p><input placeholder="Name" /></p>
+                        <p><input placeholder="Email" /></p>
+                        <p><input placeholder="Subject" /></p>
+                        <p><input placeholder="Message" /></p>
+
+
+                        <button style="width:12em; border:0px">Send</button>
+                    </center>
+                </div>
+
+                <div class="col-md-4">
+                    <center>
+                        <dl>
+                            <h4><dt>About</dt></h4>
+                            <dd>
+                                <a href="#">About Us</a>
+                            </dd>
+                            <dd>
+                                <a href="#">We're hiring</a>
+                            </dd>
+                            <dd><a href="#">Support</a></dd>
+
+                        </dl>
+                        <a href="#" data-toggle="modal" data-target="#myModal">Find Store</a>
+
+                        <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <div calss="modal header">
+                                            <div class="modal-title">
+                                                Find us!
+                                            </div>
+                                        </div>
+                                        <div class="modal-body">
+                                            <input type="email" placeholder="Enter your zip code" />
+                                            <div id="map" style="width:400px;height:400px"></div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-danger" onclikc="myMap()">Find us</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <dd><a href="#">Shipment</a></dd>
+                        <dd><a href="#">Payment</a></dd>
+                        <dd><a href="#">Gift Card</a></dd>
+                        <dd><a href="#">Return</a></dd>
+                        <dd><a href="#">Help</a></dd>
+
+                    </center>
+                </div>
+
+                <div class="col-md-4">
+
+                    <h4>Store</h4>
+                    <p><i class="fa fa-map-marker"></i> Company Name</p>
+                    <p><i class="fa fa-phone"></i> 0044123123 </p>
+                    <p><i class="fa fa-envelope-open"></i> ex@gmail.com</p>
+                    <h4>We accept</h4>
+                    <p><i class="fa fa-cc-amex"></i> Amex</p>
+                    <p><i class="fa fa-credit-card"></i> Credit Card</p>
+                    <p>
+                        <i class="fa fa-facebook"></i>
+                        <i class="fa fa-snapchat"></i>
+                        <i class="fa fa-instagram"></i>
+                        <i class="fa fa-linkedin"></i>
+                        <i class="fa fa-twitter"></i>
+                        <i class="fa fa-pinterest"></i>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+        <!--about and contact section ends-->
+        <!--footer starts-->
+        <footer>
+            <center>
+                <div class="row" style="background-color:black">
+                    <div class="col">
+                        <div style=" color:white; margin-top:50px; margin-bottom:100px">
+                            <p>
+                                Powered by <a href="https://www.coderfoundry.com">CoderFoundry </a>&copy;
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </center>
+        </footer>
+    </div>
+
+    <!--container div-->
+    <!--nav bar open script-->
+
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.display = "block";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.display = "none";
+        }
+
+        function myMap() {
+            var mapOptions = {
+                center: new google.maps.LatLng(51.5, -0.12),
+                zoom: 10,
+                mapTypeId: google.maps.MapTypeId.HYBRID
+            }
+            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        }
+    </script>
+
+    <!--modal buttons script end-->
+    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+    <script src="~/Assets/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Assets/Scripts/bootstrap.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
